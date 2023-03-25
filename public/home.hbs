@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css1.css">
+    <title>home</title>
+</head>
+
+<body>
+    <div class="mainsection">
+
+        <div class="page">
+            <h2>Home</h2>
+        </div>
+
+        <div class="container">
+            <form action="/stories/{{id}}" method="POST">
+                <div class="Info">
+                    <h2>Add Post</h2>
+                </div>
+                <div class="story">
+                    <textarea spellcheck="true" id="body" name='body' placeholder='Write Here' cols="120"
+                        rows="10"></textarea>
+                </div>
+                <div class="buttons">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+
+        {{!-- {{#if Posts}} --}}
+        {{#if Posts}}
+
+        <div class="storyContainer">
+            {{#each Posts}}
+            <div class="card">
+
+                <div class="content">
+                    <p class="contentbody">{{body}}</p>
+                </div>
+                <div class="edits">
+                    <a href="/stories/editpage/{{id}}" class="child">EDIT</a>
+                    <form action="/stories/delete/{{id}}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class='child' type="submit">DELETE</button>
+                    </form>
+                    <button class='like'> 
+                            <i class="fa-regular fa-heart"></i> 
+                            <span id="likeCount"></span>
+                    </button> 
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="storyContainer">
+
+            <p>You have not created any stories</p>
+        </div>
+
+        {{/if }}
+
+
+    </div>
+    <script>
+        const likebtn = document.querySelector('.like');
+        likebtn.addEventListener('click',ds)
+function ds(){
+    console.log("jkasd")
+    document.getElementById("likeCount").innerText = "1";
+}
+    </script>
+    {{!-- <script src="./common.js"></script> --}}
+</body>
+
+</html>

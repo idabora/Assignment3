@@ -1,0 +1,45 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(to right, rgb(235, 118, 137) , rgb(76, 76, 222));
+}
+.mainsection{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.4rem;
+    padding:20px 40px;
+}
+#body{
+    padding:10px;
+}
+.storyContainer{
+    display:flex;
+    justify-content: flex-start;
+    /* align-items: center; */
+    flex-direction: column;
+    width:90%;
+    padding:10px;
+    row-gap:1rem;
+    border: 2px solid black;
+}
+.storyContainer .card{
+    border:2px solid rgb(0, 0, 0);
+    padding:10px;
+    flex-direction: column;
+    display:flex;
+    row-gap: 1rem;
+}
+
+.storyContainer .card .edits{
+    display:flex;
+    column-gap: 1rem;
+}
+.container .buttons{
+    display:flex;
+    column-gap: 1rem;
+}
